@@ -11,15 +11,25 @@ BS::				BS
 
 
 ; Shift tap dance() ----------------------
-~LShift::									; shift singleToggle
-	Input, SingleKey, L1 T3 C, {LControl}{RControl}{LAlt}{RAlt}{LShift}{RShift}{LWin}{RWin}{AppsKey}{F1}{F2}{F3}{F4}{F5}{F6}{F7}{F8}{F9}{F10}{F11}{F12}{Left}{Right}{Up}{Down}{Home}{End}{PgUp}{PgDn}{Del}{Ins}{BS}{CapsLock}{NumLock}{PrintScreen}{Pause}
-	
-	if !(SingleKey = "")
-		Send, +%SingleKey%
+; #if, not GetKeyState("BackSpace", "P")
+	~LShift::									; shift singleToggle
+		KeyWait, LShift
+		if (A_TimeSinceThisHotkey < 250)
+		{
+			Input, SingleKey, L1 T3 C, {LControl}{RControl}{LAlt}{RAlt}{LShift}{RShift}{LWin}{RWin}{AppsKey}{F1}{F2}{F3}{F4}{F5}{F6}{F7}{F8}{F9}{F10}{F11}{F12}{Left}{Right}{Up}{Down}{Home}{End}{PgUp}{PgDn}{Del}{Ins}{BS}{CapsLock}{NumLock}{PrintScreen}{Pause}
+			
+			if !(SingleKey = "")
+				Send, +%SingleKey%
 
-	if InStr(ErrorLevel, "BackSpace")
-		send {BackSpace}
-Return
+			if InStr(ErrorLevel, "BackSpace")
+				send {BackSpace}
+		}
+		else if (A_ThisHotkey = A_PriorHotkey and A_TimeSincePriorHotkey < 1100)
+		{
+      	SetCapsLockState, % GetKeyState("CapsLock","T") ? "Off" : "On"
+		}
+	Return
+; #if
 
 
 ; Arrow Keys FTW ---------------
@@ -150,8 +160,12 @@ end & Right::	send {NumpadEnter}
 
 
 ; commands -----------------------
-; ~RShift::
-; 	Input, userInput, T3 L5 C, , end
-; 	if (userInput = "end")
-; 		ExitApp
-; return
+~RControl::
+	KeyWait, RShift
+	if (A_TimeSinceThisHotkey < 250)
+	{
+		Input, userInput, T3 L5 C, , end
+		if (userInput = "end")
+			ExitApp
+	}
+return
