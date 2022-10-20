@@ -5,72 +5,63 @@
 ; !	=	Alt
 
 ; BackSpace Stuff ----------------------
-BS::				BS
-RShift & BS::	Send ^{bs}				; backWord()
-<!BS::			Send ^{bs}				; backWord()
-^+BS:: 			Send +{Delete}
-~LShift::									; doubleShift to capsLock()
-	KeyWait, LShift 
-   If (A_ThisHotkey = A_PriorHotkey and A_TimeSincePriorHotkey < 400)
-      SetCapsLockState, % GetKeyState("CapsLock","T") ? "Off" : "On"
-Return
 
-; Arrow Keys FTW ---------------
-#if, GetKeyState("BackSpace", "P")
-	SendInput, {lalt Up}
-	d:: Left
-	s:: Down
-	r:: Right
-	t:: Up
+; ~RShift::
+; Input, UserInput, V T3 L4 C, {enter}.{esc}{tab}, btw,otoh,fl,ahk,ca
 
-	!d:: Send, ^{Left}
-	!r:: Send, ^{Right}
-	
-	i:: Left
-	e:: Down
-	a:: Right
-	,:: Up
-
-	l:: Home
-	c:: End
-	p:: PgUp
-	n:: PgDn
-#if
+; If InStr(ErrorLevel, "EndKey:")
+; {
+;     MsgBox, You entered "%UserInput%" and terminated the input with %ErrorLevel%.
+;     return
+; }
+; if (UserInput = "btw")
+;     Send, {backspace 4}by the way
+; else if (UserInput = "otoh")
+;     Send, {backspace 5}on the other hand
+; else if (UserInput = "fl")
+;     Send, {backspace 3}Florida
+; else if (UserInput = "ca")
+;     Send, {backspace 3}California
+; else if (UserInput = "ahk")
+;     Run, https://www.autohotkey.com
+; return
 
 
-; Numpad Map ----------------------------------
-Tab::Tab
-Tab & ralt:: !Tab
+~LShift::
+	Input, SingleKey, L1 T3 C, {LControl}{RControl}{LAlt}{RAlt}{LShift}{RShift}{LWin}{RWin}{AppsKey}{F1}{F2}{F3}{F4}{F5}{F6}{F7}{F8}{F9}{F10}{F11}{F12}{Left}{Right}{Up}{Down}{Home}{End}{PgUp}{PgDn}{Del}{Ins}{BS}{CapsLock}{NumLock}{PrintScreen}{Pause}
+	if !(SingleKey = "")
+		Send, {Shift Down}%SingleKey%{Shift up}
+return
 
-#if, GetKeyState("Tab", "P")
-	v:: Numpad1
-	g:: Numpad2
-	f:: Numpad3
-	d:: Numpad4
-	s:: Numpad5
-	r:: Numpad6
-	l:: Numpad7
-	t:: Numpad8
-	c:: Numpad9
-	q:: Numpad0
-	
-	p:: NumpadSub
-	n:: NumpadAdd
-#if 
+; GetKeyState, LAlt_bState, Shift
 
 
-; ; Programmer Symbols ---------------------- 
-; lalt:: lalt
+; #if, InStr(LAlt_bState, "D")
+; #If, GetKeyState("tab", "P")
 
-#if, GetKeyState("Alt", "P") and not GetKeyState("BackSpace", "P")
+; LAlt:: 
+; 	send {LAlt up}
+; 	LAlt_bState := GetKeyState("LAlt", "P")
+; 	if LAlt_bState = 0
+; 		o:: ToolTip, opassa here %LAlt_bState%.
+; 	Return
+; Return
 
-	<!i:: Send {Raw}[
-	<!e:: Send {Raw}(
-	<!a:: Send {Raw})
-	<!o:: Send {Raw}{
-#if
+; #if
 
 
-BS & PrintScreen:: PrintScreen
 
+; #if, GetKeyState("LAlt", "P")
+; 	send {Blind}{LAlt Up}
 
+; 	LAlt_bState := GetKeyState("LAlt", "P")
+; 	; if LAlt_bState = 0
+; 		o:: ToolTip, opassa here %LAlt_bState%.
+; #if
+
+; LShift::
+;     if GetKeyState("LShift")
+;         Send {Blind}{LShift Up}
+;     else
+;         Send {Blind}{LShift Down}
+; return

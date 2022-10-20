@@ -6,38 +6,41 @@
 
 ; BackSpace Stuff ----------------------
 BS::				BS
-RShift & BS::	Send ^{bs}				; backWord()
 <!BS::			Send ^{bs}				; backWord()
 ^+BS:: 			Send +{Delete}
-~LShift::									; doubleShift to capsLock()
-	KeyWait, LShift 
-   If (A_ThisHotkey = A_PriorHotkey and A_TimeSincePriorHotkey < 400)
-      SetCapsLockState, % GetKeyState("CapsLock","T") ? "Off" : "On"
+
+
+; Shift tap dance() ----------------------
+~LShift::									; shift singleToggle
+	Input, SingleKey, L1 T3 C, {LControl}{RControl}{LAlt}{RAlt}{LShift}{RShift}{LWin}{RWin}{AppsKey}{F1}{F2}{F3}{F4}{F5}{F6}{F7}{F8}{F9}{F10}{F11}{F12}{Left}{Right}{Up}{Down}{Home}{End}{PgUp}{PgDn}{Del}{Ins}{BS}{CapsLock}{NumLock}{PrintScreen}{Pause}
+	
+	if !(SingleKey = "")
+		Send, +%SingleKey%
+
+	if InStr(ErrorLevel, "BackSpace")
+		send {BackSpace}
 Return
 
+
 ; Arrow Keys FTW ---------------
-; space:: space
-#if, GetKeyState("LAlt", "P")
-	Send, {LAlt Down}
-	d:: SendInput, {Left}
+#if, GetKeyState("BackSpace", "P")
+	d:: Left
 	s:: Down
 	r:: Right
 	t:: Up
  
-	; #if, GetKeyState("BackSpace", "P")
-		+!d:: Send, ^+{Left}
-		+!r:: Send, ^+{Right}
-		!d::	Send, ^{Left}
-		!r::	Send,	^{Right}
-	; #if
-
-	; i:: Left
+	+!d:: Send, ^+{Left}
+	+!r:: Send, ^+{Right}
+	!d::	Send, ^{Left}
+	!r::	Send,	^{Right}
+	
+	i:: Left
 	e:: Down
 	a:: Right
 	,:: Up
 
-	l:: SendInput, Home
-	c:: SendInput, {End}
+	l:: Home
+	c:: End
 	p:: PgUp
 	n:: PgDn
 #if
@@ -70,30 +73,30 @@ Tab & ralt:: !Tab
 
 ; Programmer Symbols ---------------------- 
 #if, not GetKeyState("BackSpace", "P")
-	; <!space:: Send {space}
+	<!space:: Send {space}
 
-	; <!?::		Send {Raw}#
-	; <!,::		Send {Raw}<
-	; <!.::		Send {Raw}>
+	<!?::		Send {Raw}#
+	<!,::		Send {Raw}<
+	<!.::		Send {Raw}>
 
-	; <!t::		Send {Raw}/
-	; <!c::		Send {Raw}}
-	; <!p::		Send {Raw}]
+	<!t::		Send {Raw}/
+	<!c::		Send {Raw}}
+	<!p::		Send {Raw}]
 
-	; <!i::		Send {Raw}[
-	; <!e::		Send {Raw}(
-	; <!a::		Send {Raw})
-	; <!o::		Send {Raw}{
-	; <!u::		Send {Raw}&
+	<!i::		Send {Raw}[
+	<!e::		Send {Raw}(
+	<!a::		Send {Raw})
+	<!o::		Send {Raw}{
+	<!u::		Send {Raw}&
 
-	; <!m::		Send {Raw}`%
-	; <!d::		Send {Raw}$
-	; <!s::		Send {Raw}=
-	; <!r::		Send {Raw}+
-	; <!n::		Send {Raw}@
-	; <!sc028::Send {Raw}:
+	<!m::		Send {Raw}`%
+	<!d::		Send {Raw}$
+	<!s::		Send {Raw}=
+	<!r::		Send {Raw}+
+	<!n::		Send {Raw}@
+	<!sc028::Send {Raw}:
 
-	; <!z::		Send {Raw};
+	<!z::		Send {Raw};
 #if
 
 
@@ -129,7 +132,7 @@ end & Right::	send {NumpadEnter}
 
 
 <!sc02B:: 	Send {Raw}\
-<!+sc02B:: 	Send {Raw}|
+; <!+sc02B:: 	Send {Raw}|
 
 <!y:: 	Send ^{y}
 <!sc2D:: Send ^{z}
@@ -144,3 +147,11 @@ end & Right::	send {NumpadEnter}
 ; --------- Sleep/Suspend -----------------------
 
 ^#L:: DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)
+
+
+; commands -----------------------
+; ~RShift::
+; 	Input, userInput, T3 L5 C, , end
+; 	if (userInput = "end")
+; 		ExitApp
+; return
