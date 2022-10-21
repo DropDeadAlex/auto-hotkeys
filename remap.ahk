@@ -5,13 +5,13 @@
 ; !	=	Alt
 
 ; BackSpace Stuff ----------------------
-BS::				BS
-<!BS::			Send ^{bs}				; backWord()
-^+BS:: 			Send +{Delete}
+BS::		BS
+<!BS::		Send ^{bs}				; backWord()
+^+BS::		Send +{Delete}
 
 
 ; Shift tap dance() ----------------------
-; #if, not GetKeyState("BackSpace", "P")
+#if, not GetKeyState("BackSpace", "P")
 	~LShift::									; shift singleToggle
 		KeyWait, LShift
 		if (A_TimeSinceThisHotkey < 250)
@@ -26,33 +26,40 @@ BS::				BS
 		}
 		else if (A_ThisHotkey = A_PriorHotkey and A_TimeSincePriorHotkey < 1100)
 		{
-      	SetCapsLockState, % GetKeyState("CapsLock","T") ? "Off" : "On"
+      		SetCapsLockState, % GetKeyState("CapsLock","T") ? "Off" : "On"
 		}
 	Return
-; #if
+#if
 
 
 ; Arrow Keys FTW ---------------
 #if, GetKeyState("BackSpace", "P")
-	d:: Left
-	s:: Down
-	r:: Right
-	t:: Up
+	d::		Left
+	s::		Down
+	r::		Right
+	t::		Up
  
-	+!d:: Send, ^+{Left}
-	+!r:: Send, ^+{Right}
+	+!d::	Send, ^+{Left}
+	+!r::	Send, ^+{Right}
 	!d::	Send, ^{Left}
-	!r::	Send,	^{Right}
+	!r::	Send, ^{Right}
 	
-	i:: Left
-	e:: Down
-	a:: Right
-	,:: Up
+	i::		Left
+	e::		Down
+	a::		Right
+	,::		Up
 
-	l:: Home
-	c:: End
-	p:: PgUp
-	n:: PgDn
+	l::		Home
+	c::		End
+	p::		PgUp
+	n::		PgDn
+
+	m::		MouseClick, Left
+	sc028::	MouseClick, Right
+	o::		Send {AppsKey}
+	.::		Send {Escape}
+	g::		Send {Enter}
+	+g::	Send +{Enter}
 #if
 
 
@@ -61,23 +68,23 @@ Tab::Tab
 Tab & ralt:: !Tab
 
 #if, GetKeyState("Tab", "P")
-	v:: Numpad1
-	g:: Numpad2
-	f:: Numpad3
-	d:: Numpad4
-	s:: Numpad5
-	r:: Numpad6
-	l:: Numpad7
-	t:: Numpad8
-	c:: Numpad9
-	q:: Numpad0
+	v:: 	Numpad1
+	g:: 	Numpad2
+	f:: 	Numpad3
+	d:: 	Numpad4
+	s:: 	Numpad5
+	r:: 	Numpad6
+	l:: 	Numpad7
+	t:: 	Numpad8
+	c:: 	Numpad9
+	q:: 	Numpad0
 	
-	p:: NumpadSub
-	n:: NumpadAdd
+	p:: 	NumpadSub
+	n:: 	NumpadAdd
 
-	m:: 	  NumpadMult
-	sc028:: NumpadDiv
-	w:: 	  NumpadDiv
+	m::		NumpadMult
+	sc028::	NumpadDiv
+	w::		NumpadDiv
 #if 
 
 
@@ -105,7 +112,7 @@ Tab & ralt:: !Tab
 	<!s::		Send {Raw}=
 	<!r::		Send {Raw}+
 	<!n::		Send {Raw}@
-	<!sc028::Send {Raw}:
+	<!sc028::	Send {Raw}:
 
 	<!b::		Send {Raw}!
 	<!z::		Send {Raw};
@@ -119,35 +126,35 @@ AppsKey:: Run, calc.exe
 Launch_App2::	F13
 PrintScreen::	Send {F14}
 CapsLock::		Send {F15}
-Pause:: 			Send {F16}
+Pause::			Send {F16}
 
-#?:: 	Send {F1}
-#,:: 	Send {F2}
-#.:: 	Send {F3}
-#h:: 	Send {F4}
+#?::	Send {F1}
+#,::	Send {F2}
+#.::	Send {F3}
+#h::	Send {F4}
 
-#i:: 	Send {F5}
-#e:: 	Send {F6}
-#a:: 	Send {F7}
-#o:: 	Send {F8}
+#i::	Send {F5}
+#e::	Send {F6}
+#a::	Send {F7}
+#o::	Send {F8}
 
-#y:: 	Send {F9}
+#y::	Send {F9}
 #sc2D::	Send {F10}
-#j:: 	Send {F11}
-#b:: 	Send {F12}
+#j::	Send {F11}
+#b::	Send {F12}
 
 
 
 ; Drevo Adaptation  ----------------------
-end::				send {end}
+end::			send {end}
 end & Right::	send {NumpadEnter}
 
 
-<!sc02B:: 	Send {Raw}\
-<!+sc02B:: 	Send {Raw}|
+<!sc02B::		Send {Raw}\
+<!+sc02B::		Send {Raw}|
 
-<!y:: 	Send ^{y}
-<!sc2D:: Send ^{z}
+<!y::	 		Send ^{y}
+<!sc2D:: 		Send ^{z}
 
 
 ; win volume ---------------------------
