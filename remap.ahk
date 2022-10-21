@@ -59,7 +59,7 @@ BS::		BS
 	o::		Send {AppsKey}
 	.::		Send {Escape}
 	g::		Send {Enter}
-	+g::	Send +{Enter}
+	!g::	Send +{Enter}
 #if
 
 
