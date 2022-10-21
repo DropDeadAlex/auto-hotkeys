@@ -4,13 +4,13 @@
 ; +	=	Shift
 ; !	=	Alt
 
-; BackSpace Stuff ----------------------
+; BackSpace Stuff ----------------------------
 BS::		BS
 <!BS::		Send ^{bs}				; backWord()
 ^+BS::		Send +{Delete}
 
 
-; Shift tap dance() ----------------------
+; Shift tap dance() ---------------------------
 #if, not GetKeyState("BackSpace", "P")
 	~LShift::									; shift singleToggle
 		KeyWait, LShift
@@ -32,17 +32,17 @@ BS::		BS
 #if
 
 
-; Arrow Keys FTW ---------------
+; Arrow Keys FTW ------------------------------
 #if, GetKeyState("BackSpace", "P")
 	d::		Left
 	s::		Down
 	r::		Right
 	t::		Up
  
-	+!d::	Send, ^+{Left}
-	+!r::	Send, ^+{Right}
-	!d::	Send, ^{Left}
-	!r::	Send, ^{Right}
+	+!d::	Send ^+{Left}
+	+!r::	Send ^+{Right}
+	!d::	Send ^{Left}
+	!r::	Send ^{Right}
 	
 	i::		Left
 	e::		Down
@@ -88,9 +88,9 @@ Tab & ralt:: !Tab
 #if 
 
 
-; Programmer Symbols ---------------------- 
+; Programmer Symbols ------------------------
 #if, not GetKeyState("BackSpace", "P")
-	<!space:: Send {space}
+	<!space::	Send {space}
 
 	<!?::		Send {Raw}#
 	<!,::		Send {Raw}<
@@ -119,29 +119,29 @@ Tab & ralt:: !Tab
 #if
 
 
-; Function Keys  ----------------------
-BS & PrintScreen:: PrintScreen
-AppsKey:: Run, calc.exe
+; Function Keys  ---------------------------
+BS & PrintScreen::	PrintScreen
+AppsKey:: 			Run, calc.exe
 
 Launch_App2::	F13
 PrintScreen::	Send {F14}
 CapsLock::		Send {F15}
 Pause::			Send {F16}
 
-#?::	Send {F1}
-#,::	Send {F2}
-#.::	Send {F3}
-#h::	Send {F4}
++#?::	Send {F1}
++#,::	Send {F2}
++#.::	Send {F3}
++#h::	Send {F4}
 
-#i::	Send {F5}
-#e::	Send {F6}
-#a::	Send {F7}
-#o::	Send {F8}
++#i::	Send {F5}
++#e::	Send {F6}
++#a::	Send {F7}
++#o::	Send {F8}
 
-#y::	Send {F9}
-#sc2D::	Send {F10}
-#j::	Send {F11}
-#b::	Send {F12}
++#y::	Send {F9}
++#sc2D::Send {F10}
++#j::	Send {F11}
++#b::	Send {F12}
 
 
 
@@ -158,14 +158,14 @@ end & Right::	send {NumpadEnter}
 
 
 ; win volume ---------------------------
-#WheelUp::	Send {Volume_Up}  ; Wheel over taskbar: increase/decrease volume.
-#WheelDown::Send {Volume_Down} ;
+#WheelUp::		Send {Volume_Up}  ; Wheel over taskbar: increase/decrease volume.
+#WheelDown::	Send {Volume_Down} ;
 
 
 
 ; --------- Sleep/Suspend -----------------------
-
 ^#L:: DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)
+
 
 
 ; commands -----------------------
