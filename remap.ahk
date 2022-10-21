@@ -89,6 +89,7 @@ Tab & ralt:: !Tab
 	<!,::		Send {Raw}<
 	<!.::		Send {Raw}>
 
+	<!l::		Send {Raw}*
 	<!t::		Send {Raw}/
 	<!c::		Send {Raw}}
 	<!p::		Send {Raw}]
@@ -106,6 +107,7 @@ Tab & ralt:: !Tab
 	<!n::		Send {Raw}@
 	<!sc028::Send {Raw}:
 
+	<!b::		Send {Raw}!
 	<!z::		Send {Raw};
 #if
 
@@ -119,20 +121,20 @@ PrintScreen::	Send {F14}
 CapsLock::		Send {F15}
 Pause:: 			Send {F16}
 
->#?:: 	Send {F1}
->#,:: 	Send {F2}
->#.:: 	Send {F3}
->#h:: 	Send {F4}
+#?:: 	Send {F1}
+#,:: 	Send {F2}
+#.:: 	Send {F3}
+#h:: 	Send {F4}
 
->#i:: 	Send {F5}
->#e:: 	Send {F6}
->#a:: 	Send {F7}
->#o:: 	Send {F8}
+#i:: 	Send {F5}
+#e:: 	Send {F6}
+#a:: 	Send {F7}
+#o:: 	Send {F8}
 
->#y:: 	Send {F9}
->#sc2D::	Send {F10}
->#j:: 	Send {F11}
->#b:: 	Send {F12}
+#y:: 	Send {F9}
+#sc2D::	Send {F10}
+#j:: 	Send {F11}
+#b:: 	Send {F12}
 
 
 
@@ -142,7 +144,7 @@ end & Right::	send {NumpadEnter}
 
 
 <!sc02B:: 	Send {Raw}\
-; <!+sc02B:: 	Send {Raw}|
+<!+sc02B:: 	Send {Raw}|
 
 <!y:: 	Send ^{y}
 <!sc2D:: Send ^{z}
