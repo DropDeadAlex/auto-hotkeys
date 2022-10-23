@@ -1,6 +1,6 @@
-Run, "Y:\Users\Alex\Meus Documentos\autoHotkey\remap.ahk"
+Run, "Y:\Users\Alex\sys-customs\autoHotkey\remap.ahk"
 
-Run, "Y:\Users\Alex\Meus Documentos\autoHotkey\winDrag.ahk"
+Run, "Y:\Users\Alex\sys-customs\autoHotkey\winDrag.ahk"
 
 
 
