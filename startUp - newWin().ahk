@@ -1,5 +1,5 @@
+; The main Scripts to waking with WIN 
 Run, "Y:\Users\Alex\sys-customs\autoHotkey\remap.ahk"
-
 Run, "Y:\Users\Alex\sys-customs\autoHotkey\winDrag.ahk"
 
 
@@ -32,4 +32,3 @@ Run, "C:\Program Files\ShareX\ShareX.exe"
 
 Sleep, 15000
 Run, "C:\Program Files\WindowsApps\40459File-New-Project.EarTrumpet_2.1.8.181_x86__725pr5jq8wr8a\EarTrumpet\EarTrumpet.exe"
-
