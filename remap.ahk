@@ -54,8 +54,8 @@ BS::		BS
 	sc028::	MouseClick, Right
 	o::		Send {AppsKey}
 	.::		Send {Escape}
-	g::		Send {Enter}
-	!g::	Send +{Enter}
+	!g::	Send {Enter}
+	g::		Send +{Enter}
 #if
 
 
