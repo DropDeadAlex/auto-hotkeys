@@ -96,8 +96,8 @@ Tab & ralt:: !Tab
 	<!h::		Send {Raw}|
 
 	<!l::		Send {Raw}*
-	<!+t::		Send {Raw}\
 	<!t::		Send {Raw}/
+	<!+t::		Send {Raw}\
 	<!c::		Send {Raw}}
 	<!p::		Send {Raw}]
 
@@ -115,36 +115,36 @@ Tab & ralt:: !Tab
 	<!n::		Send {Raw}@
 	<!sc028::	Send {Raw}:
 
+	<!b::		Send {Raw}!
 	<!q::		Send {Raw}$
 	<!v::		Send {Raw}-
-	<!b::		Send {Raw}!
 	<!z::		Send {Raw};
 #if
 
 
-; Function Keys  ---------------------------
+; Function Keys Row ---------------------------
 BS & PrintScreen::	PrintScreen
 AppsKey:: 			Run, calc.exe
 
-Launch_App2::	F13
-PrintScreen::	Send {F14}
-CapsLock::		Send {F15}
-Pause::			Send {F16}
+Launch_App2::F13
+PrintScreen::Send {F14}
+CapsLock::	Send {F15}
+Pause::		Send {F16}
 
-+#?::	Send {F1}
-+#,::	Send {F2}
-+#.::	Send {F3}
-+#h::	Send {F4}
++#?::		Send {F1}
++#,::		Send {F2}
++#.::		Send {F3}
++#h::		Send {F4}
 
-+#i::	Send {F5}
-+#e::	Send {F6}
-+#a::	Send {F7}
-+#o::	Send {F8}
++#i::		Send {F5}
++#e::		Send {F6}
++#a::		Send {F7}
++#o::		Send {F8}
 
-+#y::	Send {F9}
-+#sc2D::Send {F10}
-+#j::	Send {F11}
-+#b::	Send {F12}
++#y::		Send {F9}
++#sc2D::	Send {F10}
++#j::		Send {F11}
++#b::		Send {F12}
 
 
 
