@@ -54,8 +54,8 @@ BS::		BS
 	sc028::	MouseClick, Right
 	o::		Send {AppsKey}
 	.::		Send {Escape}
-	!g::	Send {Enter}
-	g::		Send +{Enter}
+	g::		Send {Enter}
+	!g::	Send +{Enter}
 #if
 
 
@@ -104,12 +104,15 @@ Tab & ralt:: !Tab
 	<!u::		Send {Raw}&
 
 	<!m::		Send {Raw}`%
-	<!d::		Send {Raw}$
+	<!d::		Send {Raw}"
+	<!+d::		Send {Raw}'
 	<!s::		Send {Raw}=
 	<!r::		Send {Raw}+
 	<!n::		Send {Raw}@
 	<!sc028::	Send {Raw}:
 
+	<!q::		Send {Raw}$
+	<!v::		Send {Raw}-
 	<!b::		Send {Raw}!
 	<!z::		Send {Raw};
 #if
