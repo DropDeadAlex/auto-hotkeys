@@ -1,8 +1,10 @@
 #SingleInstance force
 
-; ^	=	Control
-; +	=	Shift
-; !	=	Alt
+;	^	=	Control	 
+;	+	=	Shift	 
+;	!	=	Alt		 
+
+
 
 ; BackSpace Stuff ----------------------------
 BS::		BS
@@ -28,7 +30,7 @@ BS::		BS
 #if
 
 
-; Arrow Keys FTW ------------------------------
+; Navigation Layer ------------------------------
 #if, GetKeyState("BackSpace", "P")
 	d::		Left
 	s::		Down
@@ -59,7 +61,7 @@ BS::		BS
 #if
 
 
-; Numpad Map ----------------------------------
+; Numpad Layer ----------------------------------
 Tab::Tab
 Tab & ralt:: !Tab
 
@@ -84,7 +86,7 @@ Tab & ralt:: !Tab
 #if 
 
 
-; Programmer Symbols ------------------------
+; Programmer Symbols Layer ------------------------
 #if, not GetKeyState("BackSpace", "P")
 	<!space::	Send {space}
 
