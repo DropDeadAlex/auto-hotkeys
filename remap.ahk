@@ -93,8 +93,10 @@ Tab & ralt:: !Tab
 	<!?::		Send {Raw}#
 	<!,::		Send {Raw}<
 	<!.::		Send {Raw}>
+	<!h::		Send {Raw}|
 
 	<!l::		Send {Raw}*
+	<!+t::		Send {Raw}\
 	<!t::		Send {Raw}/
 	<!c::		Send {Raw}}
 	<!p::		Send {Raw}]
