@@ -16,15 +16,18 @@ BS::		BS
 #if, not GetKeyState("BackSpace", "P")
 	~LShift::									; shift singleToggle
 		KeyWait, LShift
-		if (A_TimeSinceThisHotkey < 250)
+		if (A_TimeSinceThisHotkey < 150)
 		{
-			Input, singleKey, L1 T3 C, {LControl}{RControl}{LAlt}{RAlt}{LShift}{RShift}{LWin}{RWin}{AppsKey}{F1}{F2}{F3}{F4}{F5}{F6}{F7}{F8}{F9}{F10}{F11}{F12}{Left}{Right}{Up}{Down}{Home}{End}{PgUp}{PgDn}{Del}{Ins}{BS}{CapsLock}{NumLock}{PrintScreen}{Pause}
+			Input, singleKey, L1 T3 C, {LControl}{RControl}{LAlt}{RAlt}{LShift}{RShift}{LWin}{RWin}{AppsKey}{F1}{F2}{F3}{F4}{F5}{F6}{F7}{F8}{F9}{F10}{F11}{F12}{Left}{Right}{Up}{Down}{Home}{End}{PgUp}{PgDn}{Del}{Ins}{BS}{CapsLock}{NumLock}{PrintScreen}{Pause}{.}
 			
 			if !(singleKey = "")
-				Send, +%singleKey%
+				Send, +%singleKey%{Space}{BackSpace}
 
-			if InStr(ErrorLevel, "BackSpace")
+			else if InStr(ErrorLevel, "BackSpace")
 				send {BackSpace}
+			
+			else if InStr(ErrorLevel, ".")
+				send {.}
 		}
 	Return
 #if
@@ -62,8 +65,8 @@ BS::		BS
 
 
 ; Numpad Layer ----------------------------------
-Tab::Tab
-Tab & ralt:: !Tab
+Tab::		Tab
+Tab & ralt::!Tab
 
 #if, GetKeyState("Tab", "P")
 	v:: 	Numpad1
@@ -118,6 +121,7 @@ Tab & ralt:: !Tab
 	<!b::		Send {Raw}!
 	<!q::		Send {Raw}$
 	<!v::		Send {Raw}-
+	<!+v::		Send {Raw}_
 	<!z::		Send {Raw};
 #if
 
