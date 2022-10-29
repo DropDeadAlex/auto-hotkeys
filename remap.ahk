@@ -121,7 +121,8 @@ Tab & ralt::!Tab
 	<!b::		Send {Raw}!
 	<!q::		Send {Raw}$
 	<!v::		Send {Raw}-
-	<!+v::		Send {Raw}_
+	<!+v::		Send {U+2014}
+	<!g::		Send {Raw}_
 	<!z::		Send {Raw};
 #if
 
