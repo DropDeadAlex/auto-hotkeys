@@ -55,10 +55,15 @@ BS::		BS
 	w::		PgUp
 	p::		PgDn
 
+	l::		Delete
+	!l::	send +{Delete}
 	c::		BackSpace
 	!c::	send ^{BackSpace}
 	g::		Send {Enter}
 	!g::	Send +{Enter}
+
+	z::		send ^{y}
+	!z::	send ^{z}
 	
 	o::		Send {AppsKey}
 	.::		Send {Escape}
