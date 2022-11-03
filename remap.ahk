@@ -50,17 +50,18 @@ BS::		BS
 	a::		Right
 	,::		Up
 
-	l::		Home
-	c::		End
-	p::		PgUp
-	n::		PgDn
+	m::		Home
+	n::		End
+	w::		PgUp
+	p::		PgDn
 
-	m::		MouseClick, Left
-	sc028::	MouseClick, Right
-	o::		Send {AppsKey}
-	.::		Send {Escape}
+	c::		BackSpace
+	!c::	send ^{BackSpace}
 	g::		Send {Enter}
 	!g::	Send +{Enter}
+	
+	o::		Send {AppsKey}
+	.::		Send {Escape}
 #if
 
 
@@ -115,13 +116,13 @@ Tab & ralt::!Tab
 	<!+d::		Send {Raw}'
 	<!s::		Send {Raw}=
 	<!r::		Send {Raw}+
-	<!n::		Send {Raw}@
-	<!sc028::	Send {Raw}:
+	<!n::		Send {Raw}:
+	<!sc028::	Send {Raw}@
 
 	<!b::		Send {Raw}!
 	<!q::		Send {Raw}$
 	<!v::		Send {Raw}-
-	<!+v::		Send {U+2014}
+	<!+v::		Send {U+2014}		; mdash / travessão
 	<!g::		Send {Raw}_
 	<!z::		Send {Raw};
 #if
