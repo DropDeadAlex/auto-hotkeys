@@ -54,13 +54,13 @@ BS::		BS
 	!l::	send +{Delete}
 	c::		BackSpace
 	!c::	send ^{BackSpace}
-	g::		Send {Enter}
+	g::		Enter
 	!g::	Send +{Enter}
 
 	z::		send ^{y}		; undo()
 	!z::	send ^{z}		; redo()
-	+j::	send ^{j}		; copy()
-	+b::	send ^{b}		; paste()
+	j::		send ^{j}		; copy()
+	b::		send ^{b}		; paste()
 	
 	u::		Send {AppsKey}
 	.::		Send {Escape}
