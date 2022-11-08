@@ -14,7 +14,7 @@ BS::		BS
 
 ; Shift tap dance() ---------------------------
 #if, not GetKeyState("BackSpace", "P")
-	~LShift::									; shift singleToggle
+	~LShift::									; shift oneSingleShot
 		KeyWait, LShift
 		if (A_TimeSinceThisHotkey < 150)
 		{
@@ -40,15 +40,10 @@ BS::		BS
 	r::		Right
 	t::		Up
  
-	+!d::	Send ^+{Left}
-	+!r::	Send ^+{Right}
-	!d::	Send ^{Left}
-	!r::	Send ^{Right}
-	
-	i::		Left
-	e::		Down
-	a::		Right
-	,::		Up
+	i::		LWin
+	e::		LAlt
+	a::		LShift
+	o::		LCtrl
 
 	m::		Home
 	n::		End
@@ -62,10 +57,12 @@ BS::		BS
 	g::		Send {Enter}
 	!g::	Send +{Enter}
 
-	z::		send ^{y}
-	!z::	send ^{z}
+	z::		send ^{y}		; undo()
+	!z::	send ^{z}		; redo()
+	+j::	send ^{j}		; copy()
+	+b::	send ^{b}		; paste()
 	
-	o::		Send {AppsKey}
+	u::		Send {AppsKey}
 	.::		Send {Escape}
 #if
 
