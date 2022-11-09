@@ -64,6 +64,9 @@ BS::		BS
 	
 	u::		Send {AppsKey}
 	.::		Send {Escape}
+
+	/::		SendInput {Blind}{Ctrl Up}{Alt Up}{Shift Up}{LWin Up}	;reset modState
+	?::		SendInput {Blind}{Ctrl Up}{Alt Up}{Shift Up}{LWin Up}	;reset modState
 #if
 
 
@@ -114,8 +117,8 @@ Tab & ralt::!Tab
 	<!u::		Send {Raw}&
 
 	<!m::		Send {Raw}`%
-	<!d::		Send {Raw}"
-	<!+d::		Send {Raw}'
+	<!d::		Send {Raw}-
+	<!+d::		Send {U+2014}		; mdash / travessão
 	<!s::		Send {Raw}=
 	<!r::		Send {Raw}+
 	<!n::		Send {Raw}:
@@ -123,8 +126,8 @@ Tab & ralt::!Tab
 
 	<!b::		Send {Raw}!
 	<!q::		Send {Raw}$
-	<!v::		Send {Raw}-
-	<!+v::		Send {U+2014}		; mdash / travessão
+	<!v::		Send {Raw}"
+	<!+v::		Send {Raw}'
 	<!g::		Send {Raw}_
 	<!z::		Send {Raw};
 #if
