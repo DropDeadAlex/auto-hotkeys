@@ -1,4 +1,5 @@
 #SingleInstance force
+FileEncoding, UTF-8
 
 ;	^	=	Control	 
 ;	+	=	Shift	 
@@ -61,6 +62,7 @@ BS::		BS
 	!z::	send ^{z}		; redo()
 	j::		send ^{j}		; copy()
 	b::		send ^{b}		; paste()
+	sc2D::	send ^{sc2d}	; cut()
 	
 	u::		Send {AppsKey}
 	.::		Send {Escape}
