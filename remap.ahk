@@ -1,5 +1,4 @@
 #SingleInstance force
-FileEncoding, UTF-8
 
 ;	^	=	Control	 
 ;	+	=	Shift	 
@@ -14,24 +13,24 @@ BS::		BS
 
 
 ; Shift tap dance() ---------------------------
-#if, not GetKeyState("BackSpace", "P")
-	~LShift::									; shift oneSingleShot
-		KeyWait, LShift
-		if (A_TimeSinceThisHotkey < 150)
-		{
-			Input, singleKey, L1 T3 C, {LControl}{RControl}{LAlt}{RAlt}{LShift}{RShift}{LWin}{RWin}{AppsKey}{F1}{F2}{F3}{F4}{F5}{F6}{F7}{F8}{F9}{F10}{F11}{F12}{Left}{Right}{Up}{Down}{Home}{End}{PgUp}{PgDn}{Del}{Ins}{BS}{CapsLock}{NumLock}{PrintScreen}{Pause}{.}
+; #if, not GetKeyState("BackSpace", "P")
+; 	~LShift::									; shift oneSingleShot
+; 		KeyWait, LShift
+; 		if (A_TimeSinceThisHotkey < 150)
+; 		{
+; 			Input, singleKey, L1 T3 C, {LControl}{RControl}{LAlt}{RAlt}{LShift}{RShift}{LWin}{RWin}{AppsKey}{F1}{F2}{F3}{F4}{F5}{F6}{F7}{F8}{F9}{F10}{F11}{F12}{Left}{Right}{Up}{Down}{Home}{End}{PgUp}{PgDn}{Del}{Ins}{BS}{CapsLock}{NumLock}{PrintScreen}{Pause}{.}
 			
-			if !(singleKey = "")
-				Send, +%singleKey%{Space}{BackSpace}
+; 			if !(singleKey = "")
+; 				Send, +%singleKey%{Space}{BackSpace}
 
-			else if InStr(ErrorLevel, "BackSpace")
-				send {BackSpace}
+; 			else if InStr(ErrorLevel, "BackSpace")
+; 				send {BackSpace}
 			
-			else if InStr(ErrorLevel, ".")
-				send {.}
-		}
-	Return
-#if
+; 			else if InStr(ErrorLevel, ".")
+; 				send {.}
+; 		}
+; 	Return
+; #if
 
 
 ; Navigation Layer ------------------------------
@@ -54,9 +53,14 @@ BS::		BS
 	l::		Delete
 	!l::	send +{Delete}
 	c::		BackSpace
-	!c::	send ^{BackSpace}
-	g::		Enter
-	!g::	Send +{Enter}
+	v::		enter
+	; v::			
+	; 	if GetKeyState("shift")
+	; 		ToolTip down
+	; 	Else
+	; 		ToolTip, up
+
+	; Return
 
 	z::		send ^{y}		; undo()
 	!z::	send ^{z}		; redo()
