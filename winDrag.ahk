@@ -5,7 +5,7 @@
 ; #NoTrayIcon
 #SingleInstance force
 
-+LButton::
+>+LButton::
 	CoordMode, Mouse  ; Switch to screen/absolute coordinates.
 	MouseGetPos, EWD_MouseStartX, EWD_MouseStartY, EWD_MouseWin
 	WinGetPos, EWD_OriginalPosX, EWD_OriginalPosY,,, ahk_id %EWD_MouseWin%
