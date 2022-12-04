@@ -1,6 +1,7 @@
 ; The main Scripts to waking with WIN 
-Run, "Y:\Users\Alex\sys-customs\autoHotkey\remap.ahk"
+; Run, "Y:\Users\Alex\sys-customs\autoHotkey\remap.ahk"
 Run, "Y:\Users\Alex\sys-customs\autoHotkey\winDrag.ahk"
+Run, "Y:\Users\Alex\sys-customs\autoHotkey\shortcuts remap.ahk"
 
 
 
