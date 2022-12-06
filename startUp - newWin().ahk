@@ -2,6 +2,7 @@
 ; Run, "Y:\Users\Alex\sys-customs\autoHotkey\remap.ahk"
 Run, "Y:\Users\Alex\sys-customs\autoHotkey\winDrag.ahk"
 Run, "Y:\Users\Alex\sys-customs\autoHotkey\shortcuts remap.ahk"
+Run, "Y:\Users\Alex\sys-customs\autoHotkey\autocompletes.ahk"
 
 
 
