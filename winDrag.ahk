@@ -5,7 +5,7 @@
 ; #NoTrayIcon
 #SingleInstance force
 
->+LButton::
+XButton2::
 	CoordMode, Mouse  ; Switch to screen/absolute coordinates.
 	MouseGetPos, EWD_MouseStartX, EWD_MouseStartY, EWD_MouseWin
 	WinGetPos, EWD_OriginalPosX, EWD_OriginalPosY,,, ahk_id %EWD_MouseWin%
@@ -15,7 +15,7 @@
 	return
 
 EWD_WatchMouse:
-GetKeyState, EWD_LButtonState, LButton, P
+GetKeyState, EWD_LButtonState, XButton2, P
 if EWD_LButtonState = U  ; Button has been released, so drag is complete.
 	{
 	    SetTimer, EWD_WatchMouse, off
