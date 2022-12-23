@@ -19,3 +19,9 @@ SetWorkingDir, %A_ScriptDir%
 			WinRestore, A
 	}
 Return
+
+
+
+; win volume ---------------------------
+~XButton2 & WheelUp::		Send {Volume_Up} ; Wheel over taskbar: increase/decrease volume.
+~XButton2 & WheelDown::	Send {Volume_Down} ;
