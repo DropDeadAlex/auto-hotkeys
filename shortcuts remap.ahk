@@ -11,11 +11,11 @@ SetWorkingDir, %A_ScriptDir%
 
 	Switch WinState
 	{
-		Case 0:									; neither minimized nor maximized
+		Case 0:						; neither minimized nor maximized
 			WinMinimize, A
-		Case 1:									; is maximized
+		Case 1:						; is maximized
 			Send, #{Down}
-		Case -1:								; is minimized
+		Case -1:					; is minimized
 			WinRestore, A
 	}
 Return
