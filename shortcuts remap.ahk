@@ -12,14 +12,14 @@ SetWorkingDir, %A_ScriptDir%
 
   Switch WinState
   {
-  Case 0:						; is restored (neither minimized nor maximized)
-    WinMinimize, A
-  Case 1:						; is maximized
-    Send, #{Down}
-  Case -1:					; is minimized
-    Send, #{Up}
-    WinRestore, A
-  return
+    Case 0:						; is restored (neither minimized nor maximized)
+      WinMinimize, A
+    Case 1:						; is maximized
+      Send, #{Down}
+    Case -1:					; is minimized
+      Send, #{Up}
+      WinRestore, A
+    return
 	}
 Return
 
@@ -28,20 +28,31 @@ Return
 
   Switch WinState
   {
-  Case 0:						; is restored (neither minimized nor maximized)
-    Send, #{Up}
-  Case 1:						; is maximized
-    Send, #{Down}
-  Case -1:					; is minimized
-    Send, #{Up}
-    WinRestore, A
-  return
+    Case 0:						; is restored (neither minimized nor maximized)
+      Send, #{Up}
+    Case 1:						; is maximized
+      Send, #{Down}
+    Case -1:					; is minimized
+      Send, #{Up}
+      WinRestore, A
+    return
 	}
 Return
 
-; win volume ---------------------------
+; switch tab ----------------------------------------
+AppsKey:: Send,  {AppsKey}
+
+AppsKey & tab::  
+  if GetKeyState("Shift", "p")
+    Send,  ^+{Tab}
+  else
+    Send,  ^{Tab}
+Return
+
+; win volume ------------------------------------
 ~XButton2 & WheelUp::		Send {Volume_Up} ; Wheel over taskbar: increase/decrease volume.
 ~XButton2 & WheelDown::	Send {Volume_Down} ;
 
-; mixer popup
-^AppsKey:: Send, !^+{v}
+; audio device  ------------------------------------
++AppsKey:: Send, !^+{v}       ; mixer popup
+^AppsKey:: Send, ^{AppsKey}   ; alternate default playBack
