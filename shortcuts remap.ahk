@@ -40,7 +40,7 @@ Return
 Return
 
 ; switch tab ----------------------------------------
-AppsKey:: Send,  {AppsKey}
+AppsKey:: AppsKey
 
 AppsKey & tab::  
   if GetKeyState("Shift", "p")
@@ -56,3 +56,13 @@ Return
 ; audio device  ------------------------------------
 +AppsKey:: Send, !^+{v}       ; mixer popup
 ^AppsKey:: Send, ^{AppsKey}   ; alternate default playBack
+
+; photoshop specific  ----------------------------------------
+#IfWinActive, ahk_class Photoshop
+  Media_Play_Pause:: Space
+  ^y::    send ^{z}     ; undo()
+  ^z::    send ^+{y}    ; redo()
+  ^sc2D:: send ^{x}     ; cut()
+  ^j::    send ^{c}     ; copy()
+  ^b::    send ^{v}     ; paste()
+#if
