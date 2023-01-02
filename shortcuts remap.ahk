@@ -2,11 +2,10 @@
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
 
-;	^	=	Control	 
-;	+	=	Shift	 
-;	!	=	Alt		
+;	!	=	Alt     +	=	Shift     ^	=	Control
 
-; win state controls ---------------------------
+
+; win state controls ----------------------------------------------
 #Down::
   WinGet,WinState,MinMax, A	
 
@@ -39,13 +38,14 @@ Return
 	}
 Return
 
-; win volume ------------------------------------
+
+; win volume ------------------------------------------------
 ~XButton2 & WheelUp::		Send {Volume_Up}
 ~XButton2 & WheelDown::	Send {Volume_Down}
 
-; audio device  ------------------------------------
-+AppsKey:: Send, !^+{v}       ; mixer popup                -earTrumpet
-; ^AppsKey:: Send, ^{AppsKey}   ; switch default playBack    -volume2
+; mixer popup
++AppsKey:: Send, !^+{v}       ; earTrumpet
+
 
 ; photoshop specific  ----------------------------------------
 #IfWinActive, ahk_class Photoshop
