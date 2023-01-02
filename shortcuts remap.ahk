@@ -39,23 +39,13 @@ Return
 	}
 Return
 
-; switch tab ----------------------------------------
-AppsKey:: AppsKey
-
-AppsKey & tab::  
-  if GetKeyState("Shift", "p")
-    Send,  ^+{Tab}
-  else
-    Send,  ^{Tab}
-Return
-
 ; win volume ------------------------------------
-~XButton2 & WheelUp::		Send {Volume_Up} ; Wheel over taskbar: increase/decrease volume.
-~XButton2 & WheelDown::	Send {Volume_Down} ;
+~XButton2 & WheelUp::		Send {Volume_Up}
+~XButton2 & WheelDown::	Send {Volume_Down}
 
 ; audio device  ------------------------------------
-+AppsKey:: Send, !^+{v}       ; mixer popup
-^AppsKey:: Send, ^{AppsKey}   ; alternate default playBack
++AppsKey:: Send, !^+{v}       ; mixer popup                -earTrumpet
+; ^AppsKey:: Send, ^{AppsKey}   ; switch default playBack    -volume2
 
 ; photoshop specific  ----------------------------------------
 #IfWinActive, ahk_class Photoshop

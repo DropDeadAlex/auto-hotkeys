@@ -17,8 +17,6 @@ Run, "C:\APPs\Volume2\Volume2.exe"
 
 ; Sleep, 500
 ; Run, "C:\APPs\QuickLook\QuickLook.exe"
-; Sleep, 1500
-; Run, "E:\APPs\Wox\Wox.exe"
 
 Sleep, 15000
 Run, "C:\Program Files\ShareX\ShareX.exe"
