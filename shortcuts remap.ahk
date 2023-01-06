@@ -47,6 +47,11 @@ Return
 +AppsKey:: Send, !^+{v}       ; earTrumpet
 
 
+; arrow keys ------------------------------------------------
+F13 & Left::  Up
+F13 & Right:: Down
+
+
 ; photoshop specific  ----------------------------------------
 #IfWinActive, ahk_class Photoshop
   Media_Play_Pause:: Space
