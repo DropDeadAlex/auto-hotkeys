@@ -9,8 +9,7 @@ SetWorkingDir, %A_ScriptDir%
 #Down::
   WinGet,WinState,MinMax, A	
 
-  Switch WinState
-  {
+  Switch WinState {
     Case 0:						; is restored (neither minimized nor maximized)
       WinMinimize, A
     Case 1:						; is maximized
@@ -25,8 +24,7 @@ Return
 #Up::
   WinGet,WinState,MinMax, A	
 
-  Switch WinState
-  {
+  Switch WinState {
     Case 0:						; is restored (neither minimized nor maximized)
       Send, #{Up}
     Case 1:						; is maximized
