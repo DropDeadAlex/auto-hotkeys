@@ -5,7 +5,7 @@ SendMode Input
 
 ; —————————— css autocompletes ——————————
 ::bsb-::
-    send, border: solid black 1px;
+  send, border: solid black 1px;
 return
 
 ; —————————— Git autocompletes ——————————
@@ -17,6 +17,5 @@ return
 ::/puu::git pull origin main
 
 ::---end::
-    ExitApp
-
+  ExitApp
 Return
