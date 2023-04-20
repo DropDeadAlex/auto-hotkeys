@@ -2,11 +2,11 @@
 #NoTrayIcon
 SendMode Input
 ; When you type the text wrapped in colons, it will turn into the text after the colons
+; * = don't require a delimiter character (space)
+; ? = triggers even if it's in the middle of a word.
 
 ; —————————— css autocompletes ——————————
-::bsb-::
-  send, border: solid black 1px;
-return
+:*:bsb-::border: solid black 1px;
 
 ; —————————— Git autocompletes ——————————
 ::/ad::git add .
@@ -16,6 +16,10 @@ return
 ::/psh::git push origin main
 ::/puu::git pull origin main
 
+; —————————— url ——————————
+:*?:.vap::.vercel.app
+
+; —————————— internal ——————————
 ::---end::
   ExitApp
 Return

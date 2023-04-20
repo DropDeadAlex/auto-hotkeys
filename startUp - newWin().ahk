@@ -22,4 +22,5 @@ Sleep, 15000
 Run, "C:\Program Files\ShareX\ShareX.exe"
 
 Sleep, 15000
-Run, "C:\Program Files\WindowsApps\40459File-New-Project.EarTrumpet_2.2.1.0_x86__1sdd7yawvg6ne\EarTrumpet\EarTrumpet.exe"
+; Run, "C:\Program Files\WindowsApps\40459File-New-Project.EarTrumpet_2.2.1.0_x86__1sdd7yawvg6ne\EarTrumpet\EarTrumpet.exe"
+Run, "C:\Program Files\WindowsApps\40459File-New-Project.EarTrumpet_2.2.2.0_x86__1sdd7yawvg6ne\EarTrumpet\EarTrumpet.exe"
