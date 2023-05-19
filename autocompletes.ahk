@@ -11,6 +11,7 @@ SendMode Input
 ; —————————— Git autocompletes ——————————
 ::/ad::git add .
 ::/ca::git commit -a
+:*:/can::git commit -a -m "
 ::/ame::git commit -a --amend --no-edit
 
 ::/psh::git push origin main
