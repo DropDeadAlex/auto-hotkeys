@@ -59,3 +59,9 @@ F13 & Right:: Down
   ^j::    send ^{c}     ; copy()
   ^b::    send ^{v}     ; paste()
 #if
+
+
+; premiere specific  ----------------------------------------
+#IfWinActive, ahk_exe Adobe Premiere Pro.exe
+  ^z::    send ^+{z}     ; redo()
+#if
